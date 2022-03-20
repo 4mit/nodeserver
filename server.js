@@ -2,20 +2,21 @@ const express = require("express");
 var cors = require("cors");
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 var whitelist = [
-  "http://localhost:3000/",
+  "http://localhost:4000/",
   "http://example1.com",
   "http://example2.com",
 ];
 var corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
+    callback(null, true);
+    // if (whitelist.indexOf(origin) !== -1) {
+    //   callback(null, true);
+    // } else {
+    //   callback(new Error("Not allowed by CORS"));
+    // }
   },
 };
 
